@@ -1,0 +1,144 @@
+Practical 1: Git Hub
+1. Git config command
+$ git config --global user.name "csaail"
+$ git config --global user.email "saailchavan02@gmail.com" 
+2. Git Init command 
+$ git init
+3. Git add command
+$ git add hello.py	or$ git add .
+4. Git commit command
+$ git commit -m "first commit"
+5. Git Branch Command
+$ git branch -M main (On your first run try to run with branch command , if it does not run exclude this command on next run)
+6. Git remote Command
+$ git remote add origin https://github.com/csaail/Test.git
+7. Git push Command
+$ git push -u origin main
+8. Git status command
+$ git status 
+9. Git pull command
+$ git pull URL
+10. Git Merge Command
+$ git merge BranchName
+11. Git log Command
+$ git log 
+$ git log -3  (to limit the numbers of log entries)
+12. Git clone command
+$ git clone URL 
+
+
+
+Practical 2: Jenkins
+1. Download Jenkins from the Jenkins website.
+2. Check for Java version - 17.0.8.
+3. Create a folder in any drive and paste the .war file.
+4. Open CMD and run `java -jar jenkins.war`.
+5. Copy the provided password.
+6. Open `localhost:8080` in a browser and paste the copied password.
+7. Install suggested plugins during setup.
+8. Check for the latest Tomcat server version and download the file.
+9. Place the downloaded file in the same folder as the .war file.
+10. Create the initial admin user within Jenkins on `localhost`.
+11. Close the Jenkins window and the CMD terminal.
+12. Extract the Tomcat folder, copy `jenkins.war`, and paste it into the `webapps` folder inside Tomcat.
+13. Open CMD in the Tomcat bin directory and run `startup.bat`.
+14. Access `localhost:8080` in a web browser.
+15. Create a new project, select freestyle, enter a name, and save.
+16. Configure Git in Jenkins: select Git under Source Code Management, add the Git repo URL, and save.
+17. Click on "Build Now" for the project.
+18. Enable email notifications in Manage Jenkins > System > Email Notifications.
+19. Generate an App Password in your Google Account for email notifications.
+20. Configure email in Jenkins: set SMTP server as "smtp.gmail.com," enable SMTP authentication, enter your Google email, App Password, and select TLS.
+21. Automate scheduling: job>configure>build periodically:  Build Triggers using the expression 30 8**1-5. (5th jan 8.30)
+22. Additional configurations: enable "Add timestamps to the Console Output" and "Terminate a build if it's stuck".
+23. Set up email notifications in post-build actions by selecting email notifications and entering your email.
+
+
+
+
+Practical 3:
+1. Install the "Build Pipeline" plugin from the Jenkins plugin manager.
+2. Create three repositories in GitHub.
+3. Create three new projects in Jenkins and add the three GitHub repositories.
+4. Go to the configuration of the first project in Jenkins > Post Build Actions > Build other project.
+5. Repeat step 4 for the second project.
+6. After setting up, select "Build Now" for the projects.
+7. Go to the Jenkins dashboard and click on "New View" located to the right of the "All" Button.
+8. Enter a name and select "Build Pipeline View."
+9. In Upstream/Downstream Configuration, enter the name of your first project and click "OK."
+10. Go to the dashboard, then navigate to Settings > Plugin Manager, and install the "Delivery Pipeline" plugin.
+11. Click on "New View" on the dashboard and create a new "Delivery Pipeline."
+12. Enable the options "Show static analysis results" and "Show total build time."
+13. Inside Pipeline Components, input the name "dope," initial job as "cd1," and press "OK."
+14. Scroll down to the Pipeline section, enter any name for Components, and select the first project as the Initial job.
+15. Click "OK" to save the configuration.
+
+
+
+
+Practical 4:
+1. Log in to the Docker application.
+2. Create a new folder named "myDockerImages."
+3. Open PowerShell and navigate to the created directory.
+4. In PowerShell:
+    4.1. Create a new file named "newDockerfile" using `new-item newDockerfile`.
+    4.2. Set the content of the new file using `set-content`. Example:
+         `set-content "file location of the new file" C:\Users\CG-CS-PC09\myDockerImages\newDockerfile`
+    4.3. Add the following content to "newDockerfile":
+         ```
+         FROM ubuntu:20.04
+         RUN apt update
+         RUN apt install default-jdk -y
+         COPY . .
+         RUN ["javac","Hello.java"]
+         CMD ["java","Hello"]
+         ```
+    4.4. View the contents of "newDockerfile" using `cat newDockerfile`.
+    4.5. Build the Docker image from "newDockerfile" using `docker build . -f newDockerfile`.
+    4.6. View Docker containers' quick overview using `docker scout quickview`.
+    4.7. List Docker images using `docker images` (copy the IMAGE ID).
+    4.8. Run a Docker container using `docker run e97971df31c6` (paste your IMAGE ID).
+    4.9. Pull the Ubuntu image using `docker pull ubuntu`.
+    4.10. Run an Ubuntu container interactively and detached using `docker run -it -d ubuntu`.
+    4.11. List all Docker containers using `docker ps -a`.
+    4.12. Start a stopped container using `docker start e97971df31c6` (paste your IMAGE ID).
+    4.13. Access the running container using `docker exec -it e97971df31c6 bash` (paste your IMAGE ID).
+    4.14. Stop a running container using `docker stop e97971df31c6` (paste your IMAGE ID).
+
+
+
+
+Practical 5: Puppet
+1. Download Puppet from http://downloads.puppetlabs.com/windows/puppet-agent-x64-latest.msi.
+2. In PowerShell:
+    2.1. Run `puppet config print config`.
+    2.2. Run `puppet config print modulepath`.
+3. Create a new folder and create a new file named "hello.pp".
+4. Inside "hello.pp", add the following content:
+file {'c:\temp\hello.txt' :
+     ensure => file,
+     content=> "Hello,World\n",
+}
+5. In PowerShell, navigate to the directory where "hello.pp" is located and run:
+ 5.1. `puppet apply hello.pp`.
+
+
+
+
+Practical 6: JIRA
+1. Visit https://www.atlassian.com/software/jira.
+2. Click on "try it for free" to access Jira Software.
+3. Enter your chosen site name to proceed.
+4. Once inside Jira Software, select your project.
+5. Click on the three dots (...) and choose "Manage Workflow."
+6. Create a workflow diagram or any desired workflow configuration.
+7. After creating the workflow, proceed to create automation.
+8. Return to your project and navigate to Project Settings > Automations > Rules > Create Rules.
+9. Click on "Issue Assigned."
+10. Add an action by selecting "Send Email."
+11. Fill in the required fields for the email action.
+12. Click "Next" and provide a suitable name for the action.
+13. In the dashboard, click on "Create."
+14. Fill in the necessary fields as prompted.
+15. Then, click on "Assignee" and enter the desired name.
+
